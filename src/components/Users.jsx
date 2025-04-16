@@ -24,15 +24,18 @@ const Users = () => {
       <h2>User List</h2>
 
       {/* Show loading message while fetching users */}
+
       {loadingUsers ? (
         <p>Loading users...</p>
       ) : (
+
         // Display the list of users
         <ul>
-          {users && users.map(user => (
+          {users.map(user => (
             <li key={user.id}>{user.name}</li>
           ))}
         </ul>
+
       )}
 
       {/* Button to add a new user using postData */}

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 const useFetch = (url) => {
   const [data, setData] = useState(null);      // Store fetched data
   const [loading, setLoading] = useState(true); // Track loading state
+  // const [error, setError] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,10 +14,17 @@ const useFetch = (url) => {
         setData(json); // Save the data
       } catch (error) {
         console.error("Fetch error:", error);
+        // setError(error)
       } finally {
-        setLoading(false); // Stop loading
+        setTimeout(() => setLoading(false), 3000); // Stop loading
+        // setLoading(false)
       }
     };
+
+    // fetch(url)
+    // .then(res => res.json())
+    // .then(json => setData(json))
+    // .catch(error => console.log(error))
 
     fetchData();
   }, [url]);
